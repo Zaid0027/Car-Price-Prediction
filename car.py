@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
@@ -106,12 +105,6 @@ st.line_chart(avg_price_by_year)
 # Bar Chart: Average Price by Brand
 avg_price_by_brand = data.groupby('brand')['price'].mean().sort_values(ascending=False)
 st.bar_chart(avg_price_by_brand)
-
-# Heatmap: Correlation Matrix
-st.write("### Correlation Heatmap")
-plt.figure(figsize=(10, 6))
-sns.heatmap(data.corr(), annot=True, fmt='.2f', cmap='coolwarm')
-st.pyplot(plt)
 
 # Future Price Analysis
 st.header("Future Price Analysis")
